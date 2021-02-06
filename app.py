@@ -1,13 +1,18 @@
 from flask import Flask
 import os
+from backend import main_backend
 
-app = Flask(__name__)
+album_names = main_backend()
 
-@app.route('/')
-def hello_world():
-    return 'Hello, world!'
+def main_frontend():
+    app = Flask(__name__)
     
-app.run(
-    port = int(os.getenv('PORT', 8080))
-    
-    )
+    @app.route('/')
+    def hello_world():
+        return album_names[0]
+        
+    app.run(
+        port = int(os.getenv('PORT', 8080))
+        )
+        
+main_frontend()
