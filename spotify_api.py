@@ -7,7 +7,6 @@ import random
 def fetch_access_token():
     load_dotenv(find_dotenv())
 
-    # Retrieves access token
     auth_url = 'https://accounts.spotify.com/api/token'
 
     params = {
