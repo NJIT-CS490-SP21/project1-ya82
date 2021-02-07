@@ -32,9 +32,9 @@ Install the project's requirements.
 
 # Known problems
 
-## Spotify preview is not available for all songs
+1. Spotify preview is not available for all songs
 
-Potential solution: Only display songs that have a valid preview available
+Potential Solution: Only display songs that have a valid preview available
 
 # Potential future features
 
