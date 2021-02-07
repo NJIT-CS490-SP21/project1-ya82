@@ -1,18 +1,21 @@
 from flask import Flask
 import os
-from spotify_api import fetch_song_data
+import spotify_api
 
 
-def main_frontend():
+def main():
     app = Flask(__name__)
+    
+    song = spotify_api.Spotify()
     
     @app.route('/')
     def hello_world():
-        song_data = fetch_song_data()
-        return song_data['Name']
+        return song.Name
         
     app.run(
-        port = int(os.getenv('PORT', 8080))
+        port = int(os.getenv('PORT', 8080)),
+        debug=True
         )
         
-main_frontend()
+        
+main()
