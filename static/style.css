@@ -1,0 +1,11 @@
+body {
+    background-color: #607d8b;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    color: white;
+}
+
+img {
+  max-width: 15%;
+  height: auto;
+}
