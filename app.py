@@ -19,6 +19,5 @@ def homepage():
 
 
 app.run(
-    port=int(os.getenv('PORT', 8080)),
-    debug=True
+    port=int(os.getenv('PORT', 8080))
 )
