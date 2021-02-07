@@ -5,9 +5,8 @@ import random
 
 load_dotenv(find_dotenv())
 
-
 # Retrieves access token
-BASE_URL = 'https://accounts.spotify.com/api/token'
+AUTH_URL = 'https://accounts.spotify.com/api/token'
         
 params = {
     'grant_type': 'client_credentials',
@@ -15,7 +14,7 @@ params = {
     'client_secret': os.getenv('SPOTIFY_CLIENT_SECRET')
 }
         
-response = requests.post(BASE_URL, params)
+response = requests.post(AUTH_URL, params)
 data = response.json()
 access_token = data['access_token']
        
@@ -25,7 +24,6 @@ class Spotify:
     
     
     def __init__(self):
-        print(access_token)
         artist_ids = {
             'Caravan Palace': '37J1PlAkhRK7yrZUtqaUpQ',
             'Of Monsters and Men': '4dwdTW1Lfiq0cM8nBAqIIz',
