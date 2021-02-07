@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <link rel="stylesheet" href={{ url_for('static', filename='style.css') }} />
+        <link href="static/style.css" rel="stylesheet">
+        <title>Music Discovery</title>
     </head>
     <body>
         <h1> Welcome </h1>
         <h2> Looking for a tune?</h2>
         <h2> Try this! </h2>
-        <img src={{ song_image }} />
-        <h3> 
+        <img src={{ song_image }}  alt="Album Cover"/>
+        <h3>
             <audio controls="controls" src={{ song_preview }} >
             Your browser does not support the HTML5 audio element.
             </audio>
         </h3>
         <h3> {{ song_name }} </h3>
         <h3>
-            {%for i in range(0, len_artists)%} 
+            {%for i in range(0, len_artists)%}
                 {{ song_artists[i] }}
             {%endfor%}
         </h3>
