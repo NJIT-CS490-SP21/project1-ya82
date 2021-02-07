@@ -29,3 +29,20 @@ Install the project's requirements.
 ## Run!
 1. Run the application with: `python app.py`
 2. Visit http://127.0.0.1:8080/ in your web browser to preview the application.
+
+# Known problems
+
+## Spotify preview is not available for all songs
+
+Potential solution: Only display songs that have a valid preview available
+
+# Potential future features
+
+## Ability to select a genre
+
+A dropdown menu to select a genre could be a useful future.
+* The dropdown menu would be implemented into the HTML file. When selected, it could redirect to a url that would display a song of that genre.
+* A new Flask function and route would be needed. (Ex: @app.route('/pop'))
+* This function would then input the genre into the Spotify class.
+* The Spotify class could then use Spotify's "Get Recommendations" endpoint to get a list of popular songs of that genre.
+* The class could then select a song at random to be displayed.
