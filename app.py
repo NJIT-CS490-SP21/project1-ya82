@@ -6,10 +6,10 @@ import spotify_api
 def main():
     app = Flask(__name__)
     
-    song = spotify_api.Spotify()
     
     @app.route('/')
     def hello_world():
+        song = spotify_api.Spotify()
         return song.Name
         
     app.run(

@@ -6,25 +6,26 @@ import random
 load_dotenv(find_dotenv())
 
 
-def get_access_token(): # Retrieves access token
-        BASE_URL = 'https://accounts.spotify.com/api/token'
+# Retrieves access token
+BASE_URL = 'https://accounts.spotify.com/api/token'
         
-        params = {
-            'grant_type': 'client_credentials',
-            'client_id': os.getenv('SPOTIFY_CLIENT_ID'),
-            'client_secret': os.getenv('SPOTIFY_CLIENT_SECRET')
-        }
+params = {
+    'grant_type': 'client_credentials',
+    'client_id': os.getenv('SPOTIFY_CLIENT_ID'),
+    'client_secret': os.getenv('SPOTIFY_CLIENT_SECRET')
+}
         
-        response = requests.post(BASE_URL, params)
-        data = response.json()
-        return data['access_token']
-
+response = requests.post(BASE_URL, params)
+data = response.json()
+access_token = data['access_token']
+       
 
 class Spotify:
     """The Spotify API allows access to data about the songs, artists, and albums available on Spotify"""
     
     
     def __init__(self):
+        print(access_token)
         artist_ids = {
             'Caravan Palace': '37J1PlAkhRK7yrZUtqaUpQ',
             'Of Monsters and Men': '4dwdTW1Lfiq0cM8nBAqIIz',
@@ -38,8 +39,9 @@ class Spotify:
             )
         
         header = {
-            'Authorization': 'Bearer {token}'.format(token=get_access_token())
+            'Authorization': 'Bearer {token}'.format(token=access_token)
         }
+
         
         params = {
             'market': 'US'
@@ -64,3 +66,4 @@ class Spotify:
         self.Artists = song_artists
         self.Image = song['album']['images'][0]['url']
         self.Preview = song['preview_url']
+        
