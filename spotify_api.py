@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv, find_dotenv
 import random
 
-
+# Double check how long access token is valid for
 def fetch_access_token():
     load_dotenv(find_dotenv())
 
