@@ -44,41 +44,49 @@ access_token = fetch_spotify_access_token()
 class Song:
     """The Spotify and Genius API allows access to data about songs, artists, and albums"""
     def __init__(self):
-        artist_ids = {
-            'Caravan Palace': '37J1PlAkhRK7yrZUtqaUpQ',
-            'Of Monsters and Men': '4dwdTW1Lfiq0cM8nBAqIIz',
-            'SIAMES': '68NOjWuVYBRXzYwhel3jAl'
-        }
-
-        artist = random.choice(list(artist_ids))
-
-        base_url = 'https://api.spotify.com/v1/artists/{id}/top-tracks'.format(
-            id=artist_ids[artist]
-        )
-
-        header = {
-            'Authorization': 'Bearer {token}'.format(token=access_token)
-        }
-
-        params = {
-            'market': 'US'
-        }
-
-        response = requests.get(
-            base_url,
-            headers=header,
-            params=params
-        )
-
-        data = response.json()
-        tracks = data['tracks']
-        song = random.choice(tracks)
-
         try:
-            self.Name = song['name']
-            self.Artist = song['artists'][0]['name']
-            self.Image = song['album']['images'][0]['url']
-            self.Preview = song['preview_url']
-            self.Lyrics = fetch_lyrics_url(self.Name, self.Artist)
+            self.Error = 'temp'
+            while self.Error != False:
+                artist_ids = {
+                    'Caravan Palace': '37J1PlAkhRK7yrZUtqaUpQ',
+                    'Of Monsters and Men': '4dwdTW1Lfiq0cM8nBAqIIz',
+                    'SIAMES': '68NOjWuVYBRXzYwhel3jAl'
+                }
+        
+                artist = random.choice(list(artist_ids))
+        
+                base_url = 'https://api.spotify.com/v1/artists/{id}/top-tracks'.format(
+                    id=artist_ids[artist]
+                )
+        
+                header = {
+                    'Authorization': 'Bearer {token}'.format(token=access_token)
+                }
+        
+                params = {
+                    'market': 'US'
+                }
+        
+                response = requests.get(
+                    base_url,
+                    headers=header,
+                    params=params
+                )
+        
+                data = response.json()
+                tracks = data['tracks']
+                song = random.choice(tracks)
+    
+                self.Name = song['name']
+                self.Artist = song['artists'][0]['name']
+                self.Image = song['album']['images'][0]['url']
+                self.Preview = song['preview_url']
+                self.Lyrics = fetch_lyrics_url(self.Name, self.Artist)
+                
+                song_attributes = [self.Name, self.Artist, self.Image, self.Preview, self.Lyrics]
+                self.Error = False
+                for attribute in song_attributes:
+                    if attribute == None:
+                        self.Error = True
         except:
-            self.Name = 'Sorry! There was a problem loading the song.'
+            self.Error = True

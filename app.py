@@ -8,14 +8,20 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     song = api.Song()
-    return render_template(
-        'index.html',
-        song_name=song.Name,
-        song_artist=song.Artist,
-        song_image=song.Image,
-        song_preview=song.Preview,
-        song_lyrics=song.Lyrics
-    )
+    
+    if song.Error == True:
+        return render_template(
+            'error.html'
+            )
+    else:
+        return render_template(
+            'index.html',
+            song_name=song.Name,
+            song_artist=song.Artist,
+            song_image=song.Image,
+            song_preview=song.Preview,
+            song_lyrics=song.Lyrics
+        )
 
 
 app.run(
