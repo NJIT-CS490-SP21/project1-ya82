@@ -3,16 +3,16 @@
 ## Quickstart Guide
 The following guide will explain how to configure this music discovery app.
 
-### Clone this repository to your local machine
+### 1. Clone this repository to your local machine
 In a Linux terminal, clone this repository: `git clone https://github.com/NJIT-CS490-SP21/project1-ya82`
 
-### Configure environment variables
+### 2. Configure environment variables
 There are three needed environment variables. These will need to be configured using Heroku.
 * Your Spotify client id. `SPOTIFY_CLIENT_ID`
 * Your Spotify client secret. `SPOTIFY_CLIENT_SECRET`
 * Your Genius access token. `GENIUS_ACCESS_TOKEN`
 
-### Deploy!
+### 3. Deploy!
 Deploy the app to Heroku. Heroku will install the app requirements, load the environment variables, and deploy the app to the given domain name.
 
 
