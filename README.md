@@ -1,7 +1,10 @@
 # A Music Discovery App
 
+## Breakdown
+The app uses Python at its core. Using Python, it utilizes the requests library and the API of Spotify and Genius to pull data about the songs it displays. It uses the random library to select a random song from the ones retrieved from the Spotify API. It then uses Flask as a web framework to display the content using HTML and CSS. Finally, it uses Heroku, along with the os library to access the environment variables config'd by Heroku such as the Spotify and Genius API keys, to deploy the app to the web.
+
 ## Quickstart Guide
-The following guide will explain how to configure this music discovery app.
+The following guide will explain how to configure this music discovery app. 
 
 ### 1. Clone this repository to your local machine
 In a Linux terminal, clone this repository: `git clone https://github.com/NJIT-CS490-SP21/project1-ya82`
