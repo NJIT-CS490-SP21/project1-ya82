@@ -45,10 +45,11 @@ class Song:
     """The Spotify and Genius API allows access to data about songs, artists, and albums"""
     def __init__(self):
         try:
-            self.Error = 'temp'
             counter = 0
-            while self.Error != False and counter < 10:
+            self.Error = True
+            while self.Error == True and counter < 10:
                 counter += 1
+                self.Error = False
                 artist_ids = {
                     'Caravan Palace': '37J1PlAkhRK7yrZUtqaUpQ',
                     'Of Monsters and Men': '4dwdTW1Lfiq0cM8nBAqIIz',
@@ -86,7 +87,6 @@ class Song:
                 self.Lyrics = fetch_lyrics_url(self.Name, self.Artist)
                 
                 song_attributes = [self.Name, self.Artist, self.Image, self.Preview, self.Lyrics]
-                self.Error = False
                 for attribute in song_attributes:
                     if attribute == None:
                         self.Error = True
