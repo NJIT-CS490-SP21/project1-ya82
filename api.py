@@ -39,7 +39,8 @@ def fetch_lyrics_url(song_title, artist_name):
 
 
 access_token = fetch_spotify_access_token()
-
+# Add more artists with working previews
+# Finish up project reqs
 
 class Song:
     """The Spotify and Genius API allows access to data about songs, artists, and albums"""
@@ -47,7 +48,7 @@ class Song:
         try:
             counter = 0
             self.Error = True
-            while self.Error == True and counter < 10:
+            while self.Error == True and counter < 25:
                 counter += 1
                 self.Error = False
                 artist_ids = {
