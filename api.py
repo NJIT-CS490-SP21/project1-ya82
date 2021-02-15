@@ -38,9 +38,6 @@ def fetch_lyrics_url(song_title, artist_name):
     return lyrics_url
 
 
-access_token = fetch_spotify_access_token()
-
-
 class Song:
     """The Spotify and Genius API allows access to data about songs, artists, and albums"""
     def __init__(self):
@@ -63,7 +60,7 @@ class Song:
                 )
         
                 header = {
-                    'Authorization': 'Bearer {token}'.format(token=access_token)
+                    'Authorization': 'Bearer {token}'.format(token=fetch_spotify_access_token())
                 }
         
                 params = {
