@@ -46,7 +46,9 @@ class Song:
     def __init__(self):
         try:
             self.Error = 'temp'
-            while self.Error != False:
+            counter = 0
+            while self.Error != False and counter < 10:
+                counter += 1
                 artist_ids = {
                     'Caravan Palace': '37J1PlAkhRK7yrZUtqaUpQ',
                     'Of Monsters and Men': '4dwdTW1Lfiq0cM8nBAqIIz',
