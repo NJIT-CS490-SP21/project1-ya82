@@ -4,7 +4,7 @@ from dotenv import load_dotenv, find_dotenv
 import random
 
 # Double check how long access token is valid for
-def fetch_access_token():
+def fetch_spotify_access_token():
     load_dotenv(find_dotenv())
 
     auth_url = 'https://accounts.spotify.com/api/token'
@@ -20,11 +20,29 @@ def fetch_access_token():
     return data['access_token']
 
 
-access_token = fetch_access_token()
+def fetch_lyrics_url(song_title, artist_name):
+    load_dotenv(find_dotenv())
+    base_url = 'https://api.genius.com'
+    headers = {'Authorization': 'Bearer ' + os.getenv('GENIUS_ACCESS_TOKEN')}
+    search_url = base_url + '/search'
+    data = {'q': song_title + ' ' + artist_name}
+    response = requests.get(
+        search_url,
+        data=data,
+        headers=headers
+        )
+
+    data = response.json()
+    lyrics_url = data['response']['hits'][0]['result']['url']
+    
+    return lyrics_url
 
 
-class Spotify:
-    """The Spotify API allows access to data about the songs, artists, and albums available on Spotify"""
+access_token = fetch_spotify_access_token()
+
+
+class Song:
+    """The Spotify and Genius API allows access to data about songs, artists, and albums"""
     def __init__(self):
         artist_ids = {
             'Caravan Palace': '37J1PlAkhRK7yrZUtqaUpQ',
@@ -56,11 +74,8 @@ class Spotify:
         tracks = data['tracks']
         song = random.choice(tracks)
 
-        song_artists = []
-        for artist in song['artists']:
-            song_artists.append(artist['name'])
-
         self.Name = song['name']
-        self.Artists = song_artists
+        self.Artist = song['artists'][0]['name']
         self.Image = song['album']['images'][0]['url']
         self.Preview = song['preview_url']
+        self.Lyrics = fetch_lyrics_url(self.Name, self.Artist)
