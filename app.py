@@ -9,7 +9,7 @@ app = Flask(__name__)
 def homepage():
     song = api.Song()
     
-    if song.Error == True:
+    if song.Error is True:
         return render_template(
             'error.html'
             )
