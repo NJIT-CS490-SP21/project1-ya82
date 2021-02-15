@@ -74,8 +74,11 @@ class Song:
         tracks = data['tracks']
         song = random.choice(tracks)
 
-        self.Name = song['name']
-        self.Artist = song['artists'][0]['name']
-        self.Image = song['album']['images'][0]['url']
-        self.Preview = song['preview_url']
-        self.Lyrics = fetch_lyrics_url(self.Name, self.Artist)
+        try:
+            self.Name = song['name']
+            self.Artist = song['artists'][0]['name']
+            self.Image = song['album']['images'][0]['url']
+            self.Preview = song['preview_url']
+            self.Lyrics = fetch_lyrics_url(self.Name, self.Artist)
+        except:
+            self.Name = 'Sorry! There was a problem loading the song.'
