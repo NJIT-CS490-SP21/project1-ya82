@@ -1,13 +1,13 @@
 from flask import Flask, render_template
 import os
-import spotify_api
+import api
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def homepage():
-    song = spotify_api.Spotify()
+    song = api.Spotify()
     return render_template(
         'index.html',
         song_name=song.Name,
