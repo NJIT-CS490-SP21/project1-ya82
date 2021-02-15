@@ -8,4 +8,9 @@ body {
 img {
   max-width: 15%;
   height: auto;
+  border-radius: 25px;
+}
+
+audio {
+  border-radius: 25px;
 }
