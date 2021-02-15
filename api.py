@@ -64,6 +64,7 @@ class Song:
         while self.Error is True and counter < 25:
             counter += 1
             self.Error = False
+            
             artist = random.choice(list(artist_ids))
             song_data = fetch_song_data(artist)
 
