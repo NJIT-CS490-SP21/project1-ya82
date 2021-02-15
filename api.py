@@ -1,12 +1,9 @@
 import requests
 import os
-from dotenv import load_dotenv, find_dotenv
 import random
 
 # Double check how long access token is valid for
 def fetch_spotify_access_token():
-    load_dotenv(find_dotenv())
-
     auth_url = 'https://accounts.spotify.com/api/token'
 
     params = {
@@ -21,7 +18,6 @@ def fetch_spotify_access_token():
 
 
 def fetch_lyrics_url(song_title, artist_name):
-    load_dotenv(find_dotenv())
     base_url = 'https://api.genius.com'
     headers = {'Authorization': 'Bearer ' + os.getenv('GENIUS_ACCESS_TOKEN')}
     search_url = base_url + '/search'
