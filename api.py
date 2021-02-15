@@ -56,7 +56,7 @@ def fetch_song_data(artist):
 
 
 class Song:
-    """The Spotify and Genius API allows access to data about songs, artists, and albums"""
+    """The Spotify and Genius API allow access to data about songs, artists, and albums"""
 
     def __init__(self):
         counter = 0
