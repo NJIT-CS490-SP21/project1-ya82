@@ -8,9 +8,9 @@ In a Linux terminal, clone this repository: `git clone https://github.com/NJIT-C
 
 ### 2. Configure environment variables
 There are three needed environment variables. These will need to be configured using Heroku.
-* Your Spotify client id. `SPOTIFY_CLIENT_ID`
-* Your Spotify client secret. `SPOTIFY_CLIENT_SECRET`
-* Your Genius access token. `GENIUS_ACCESS_TOKEN`
+* Your Spotify client id: `SPOTIFY_CLIENT_ID`
+* Your Spotify client secret: `SPOTIFY_CLIENT_SECRET`
+* Your Genius access token: `GENIUS_ACCESS_TOKEN`
 
 ### 3. Deploy!
 Deploy the app to Heroku. Heroku will install the app requirements, load the environment variables, and deploy the app to the given domain name.
