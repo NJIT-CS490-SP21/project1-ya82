@@ -27,7 +27,7 @@ A dropdown menu to select a genre could be a useful future.
 * The class could then select a song at random to be displayed.
 
 ### Ability to scroll through different songs
-Rather than refreshing the page to view a new song, the user would be able to see the songs displayed in row. The song in the middle would be the currently playing one and display additional information. Click on the left or right arrows would switch songs.
+Rather than refreshing the page to view a new song, the user would be able to see the songs displayed in row. The song in the middle would be the currently playing song and display additional information. Clicking on the left or right arrows would switch songs.
 * Would require the app to continuously load songs to ensure the row of songs is properly filled.
 * An array of songs could be used to keep track of the row. Using the class structure of the api calls, song data could be stored in each element of the array.
 * New songs could be called to replace elements in the array as needed. (Ex: The user keeps clicking left to view more songs)
